@@ -15,6 +15,9 @@
       <a class="brand" href="#">AWS Console</a>
       <ul class="nav">
         <li class="<%= "active" if params[:controller] == 'home' %>"><%= link_to "Home", "/" %></li>
+        <% if user_signed_in? %>
+          <li class="<%= "active" if params[:controller] == 'accounts' %>"><%= link_to "Accounts", accounts_path %></li>
+        <% end %>
       </ul>
       <% if user_signed_in? %>
       <div class="btn-group pull-right">

@@ -1,0 +1,19 @@
+<div class="btn-toolbar">
+  <%= link_to 'Back', accounts_path, :class => 'btn' %>
+  <%= link_to 'Edit', edit_account_path(@account), :class => 'btn' %>
+</div>
+
+<p>
+  <b>Name:</b>
+  <%= @account.name %>
+</p>
+
+<p>
+  <b>Access key:</b>
+  <%= @account.access_key_id %>
+</p>
+
+<p>
+  <b>Secret access key:</b>
+  <%= @account.secret_access_key %>
+</p>
