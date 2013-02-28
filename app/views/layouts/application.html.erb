@@ -5,8 +5,34 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <style>body { margin-top: 60px }</style>
 </head>
 <body>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">AWS Console</a>
+      <ul class="nav">
+        <li class="<%= "active" if params[:controller] == 'home' %>"><%= link_to "Home", "/" %></li>
+      </ul>
+      <% if user_signed_in? %>
+      <div class="btn-group pull-right">
+        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+          <i class="icon-user"></i>
+          <%= current_user.email %>
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li><%= link_to('Profile', edit_user_registration_path) %></li>
+          <li class="divider"></li>
+          <li><%= link_to('Sign Out', destroy_user_session_path, :method => :delete) %></li>
+        </ul>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <div class="container">
   <% if notice %>
